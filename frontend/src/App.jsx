@@ -1,13 +1,6 @@
-function App() {
-  return (
-    <main className="app-shell">
-      <section className="card">
-        <span className="eyebrow">React + Vite</span>
-        <h1>Frontend is ready</h1>
-        <p>Edit <code>frontend/src/App.jsx</code> to start building your app.</p>
-      </section>
-    </main>
-  );
-}
+import AssignmentPage from './components/AssignmentPage.jsx';
 
-export default App;
+// Replace this with your team's router when the other dashboard pages are available.
+export default function App() {
+  return <AssignmentPage />;
+}
