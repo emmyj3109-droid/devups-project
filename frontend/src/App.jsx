@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import MaterialsPage from './components/MaterialsPage';
 import ClassLinkPage from './components/ClassLinkPage';
@@ -17,26 +18,28 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [backendStatus, setBackendStatus] = useState('Checking...');
 
-useEffect(() => {
-  fetch('http://localhost:5000/api/health')
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Backend request failed');
-      }
-      return response.json();
-    })
-    .then((data) => {
-      setBackendStatus(data.status);
-    })
-    .catch(() => {
-      setBackendStatus('Unavailable');
-    });
-}, []);
+  useEffect(() => {
+    fetch('http://localhost:5000/api/health')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Backend request failed');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setBackendStatus(data.status);
+      })
+      .catch(() => {
+        setBackendStatus('Unavailable');
+      });
+  }, []);
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800">
-    <p className="text-sm text-emerald-600">
-  Backend status: {backendStatus}
-</p>
+      <p className="text-sm text-emerald-600">
+        Backend status: {backendStatus}
+      </p>
+
       {/* Mobile header */}
       <header className="flex items-center justify-between bg-white px-5 py-4 shadow-sm lg:hidden">
         <h1 className="text-xl font-extrabold text-emerald-deep">
@@ -52,11 +55,12 @@ useEffect(() => {
       </header>
 
       <div className="flex min-h-screen">
-
         {/* Sidebar */}
-        <aside className={`fixed inset-y-0 left-0 z-40 w-64 bg-charcoal text-white transition-transform lg:static lg:translate-x-0 ${
-          menuOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}>
+        <aside
+          className={`fixed inset-y-0 left-0 z-40 w-64 bg-charcoal text-white transition-transform lg:static lg:translate-x-0 ${
+            menuOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
+        >
           <div className="border-b border-white/10 px-7 py-7">
             <h1 className="text-2xl font-extrabold">
               DevUps<span className="text-emerald">.</span>
@@ -90,13 +94,14 @@ useEffect(() => {
 
           <div className="absolute bottom-0 w-full border-t border-white/10 p-5">
             <p className="text-sm font-semibold">DevUps Academy</p>
-            <p className="mt-1 text-xs text-slate-400">Student learning portal</p>
+            <p className="mt-1 text-xs text-slate-400">
+              Student learning portal
+            </p>
           </div>
         </aside>
 
         {/* Main content */}
         <main className="min-w-0 flex-1">
-
           <div className="hidden items-center justify-between border-b border-slate-200 bg-white px-8 py-5 lg:flex">
             <div>
               <p className="text-sm text-slate-500">Learning portal</p>
@@ -109,31 +114,30 @@ useEffect(() => {
           </div>
 
           {activePage === 'Dashboard' && (
-  <HomePage onNavigate={setActivePage} />
-)}
-          {activePage === 'Assignments' && (
-            <AssignmentPage />
-          )}
-          {activePage === 'Class Link' && (
-  <ClassLinkPage onNavigate={setActivePage} />
-)}
-          {activePage === 'Materials' && (
-  <MaterialsPage />
-)}
-          {activePage !== 'Dashboard' &&
-          activePage !== 'Assignments' &&
-          activePage !== 'Class Link' &&
-          activePage !== 'Materials' && (
-            <section className="p-8">
-              <div className="rounded-2xl border border-slate-200 bg-white p-8">
-                <h2 className="text-2xl font-bold">{activePage}</h2>
-                <p className="mt-3 text-slate-500">
-                  This section is ready for its assigned component.
-                </p>
-              </div>
-            </section>
+            <HomePage onNavigate={setActivePage} />
           )}
 
+          {activePage === 'Assignments' && <AssignmentPage />}
+
+          {activePage === 'Class Link' && (
+            <ClassLinkPage onNavigate={setActivePage} />
+          )}
+
+          {activePage === 'Materials' && <MaterialsPage />}
+
+          {activePage !== 'Dashboard' &&
+            activePage !== 'Assignments' &&
+            activePage !== 'Class Link' &&
+            activePage !== 'Materials' && (
+              <section className="p-8">
+                <div className="rounded-2xl border border-slate-200 bg-white p-8">
+                  <h2 className="text-2xl font-bold">{activePage}</h2>
+                  <p className="mt-3 text-slate-500">
+                    This section is ready for its assigned component.
+                  </p>
+                </div>
+              </section>
+            )}
         </main>
       </div>
     </div>
