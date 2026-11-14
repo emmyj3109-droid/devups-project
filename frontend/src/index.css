@@ -1,11 +1,16 @@
+@import "tailwindcss";
+
 * {
   box-sizing: border-box;
 }
 
-:root {
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: #e2e8f0;
-  background: #020817;
+:root {--primary: #10B981;
+  --secondary: #171C26;
+  --background: #FFFFFF;
+  --text: #1E293B;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--text);
+background: var(--background);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -13,50 +18,17 @@
 }
 
 body {
+  margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  margin: 0;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle at top, rgba(59, 130, 246, 0.35), transparent 35%), #020817;
+  background: var(--background);
 }
 
-.app-shell {
-  width: 100%;
-  padding: 2rem;
+button {
+  cursor: pointer;
+  font: inherit;
 }
 
-.card {
-  width: min(100%, 640px);
-  margin: 0 auto;
-  padding: 2.5rem;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  border-radius: 1.25rem;
-  background: rgba(15, 23, 42, 0.8);
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.6);
-}
-
-.eyebrow {
-  color: #7dd3fc;
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-h1 {
-  margin: 1rem 0 0.75rem;
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: 1.1;
-}
-
-p {
-  color: #cbd5e1;
-  font-size: 1.05rem;
-}
-
-code {
-  padding: 0.15rem 0.35rem;
-  border-radius: 0.35rem;
-  background: rgba(148, 163, 184, 0.12);
-  font-family: 'SFMono-Regular', Consolas, monospace;
+#root {
+  min-height: 100vh;
 }
