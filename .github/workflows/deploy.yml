@@ -35,9 +35,14 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+            - name: Check npm configuration
+        run: |
+          npm --version
+          npm config get package-lock
+          node -e "const p = require('./package-lock.json'); console.log('Lockfile version:', p.lockfileVersion); console.log('Project:', p.name)"
 
+      - name: Install dependencies
+        run: npm ci --verbose
       - name: Build frontend
         run: npm run build
 
