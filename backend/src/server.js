@@ -1,4 +1,4 @@
-
+import { getHomeDashboard } from './home.js';
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
@@ -15,6 +15,11 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
 
+// Home Dashboard API
+if (request.method === 'GET' && request.url === '/api/home') {
+  getHomeDashboard(request, response);
+  return;
+}
 // Handle unknown routes
 app.use((req, res) => {
   res.status(404).json({ error: 'Not found' });
