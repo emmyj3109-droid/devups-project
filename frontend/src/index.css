@@ -1,16 +1,14 @@
+
 @import "tailwindcss";
 
 * {
   box-sizing: border-box;
 }
 
-:root {--primary: #10B981;
-  --secondary: #171C26;
-  --background: #FFFFFF;
-  --text: #1E293B;
+:root {
   font-family: Inter, system-ui, sans-serif;
-  color: var(--text);
-background: var(--background);
+  color: #1E293B;
+  background: #FFFFFF;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -21,35 +19,27 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: var(--background);
+  background: #FFFFFF;
+}
+
+button,
+input,
+select {
+  font: inherit;
 }
 
 button {
   cursor: pointer;
-  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 3px solid #10B981;
+  outline-offset: 3px;
 }
 
 #root {
   min-height: 100vh;
-}
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: #1E293B;
-  background: #FFFFFF;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-}
-
-* { box-sizing: border-box; }
-body { margin: 0; min-width: 320px; }
-button, input, select { font: inherit; }
-button { cursor: pointer; }
-button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible {
-  outline: 3px solid #10B981;
-  outline-offset: 3px;
 }
