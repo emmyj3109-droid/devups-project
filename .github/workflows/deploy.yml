@@ -21,7 +21,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name Debug repository files
+
+      - name: Debug repository files
         run: |
           pwd
           ls -la
