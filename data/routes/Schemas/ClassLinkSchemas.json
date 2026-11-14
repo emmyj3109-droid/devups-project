@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Class Link Schema",
+  "type": "object",
+  "required": [
+    "status",
+    "platform",
+    "liveClassUrl",
+    "schedule",
+    "announcements",
+    "platformAccess"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["active", "inactive"]
+    },
+    "platform": {
+      "type": "string"
+    },
+    "liveClassUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "schedule": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "instructor",
+          "date",
+          "time",
+          "duration",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "instructor": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "time": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "announcements": {
+      "type": "array"
+    },
+    "platformAccess": {
+      "type": "object"
+    }
+  }
+}
