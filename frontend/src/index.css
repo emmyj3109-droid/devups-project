@@ -1,3 +1,4 @@
+@import "tailwindcss";
 * {
   box-sizing: border-box;
 }
@@ -16,9 +17,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle at top, rgba(59, 130, 246, 0.35), transparent 35%), #020817;
+  background: #ffffff;
 }
 
 .app-shell {
@@ -43,16 +42,8 @@ body {
   text-transform: uppercase;
 }
 
-h1 {
-  margin: 1rem 0 0.75rem;
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: 1.1;
-}
 
-p {
-  color: #cbd5e1;
-  font-size: 1.05rem;
-}
+
 
 code {
   padding: 0.15rem 0.35rem;
