@@ -19,7 +19,7 @@ function App() {
   const [backendStatus, setBackendStatus] = useState('Checking...');
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/health')
+   fetch('https://devups-project.onrender.com/api/health')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Backend request failed');
