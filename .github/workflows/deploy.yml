@@ -21,6 +21,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name Debug repository files
+        run: |
+          pwd
+          ls -la
+          git rev-parse --show-toplevel
+          ls -l package-lock.json
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
