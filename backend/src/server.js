@@ -1,4 +1,6 @@
-
+import { getAssignments } from './assignments.js';
+import { getQuiz } from './quiz.js';
+import { getStudents } from './students.js';
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
@@ -14,6 +16,16 @@ app.use(express.json());
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
+
+//Students route 
+app.get('/api/students', getStudents);
+
+// Quiz route
+app.get('/api/quiz', getQuiz);
+
+// Assignments route
+app.get('/api/assignments', getAssignments);
+
 
 // Handle unknown routes
 app.use((req, res) => {
